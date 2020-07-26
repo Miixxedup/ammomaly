@@ -23,7 +23,7 @@ def update_states():
         # which are not in the current_data.
         if len(diff) > 0:
             print(f"[ALERT] Starting action function for state {s}")
-            STATES[s]['action_func'](diff['pid'])
+            STATES[s]['action_func'](diff)
         else:
             print(f"[INFO] No chances for state {s}") 
         # Store new data as current data
