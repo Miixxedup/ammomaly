@@ -1,6 +1,6 @@
+from importlib import import_module
 from os import listdir
 from os.path import isfile
-from importlib import import_module
 from pprint import pprint
 
 # Method to loop over ammomaly_modules and import all.
@@ -30,8 +30,3 @@ def required_defs(m):
             if m in d:
                 def_names[m[1:]] = d
     return def_names
-
-def test_required_defs(m):
-    pass
-
-

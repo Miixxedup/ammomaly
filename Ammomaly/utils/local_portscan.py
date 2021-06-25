@@ -1,6 +1,6 @@
 import psutil
 import pandas as pd
-from utils.helpers import *
+from Ammomaly.utils.helpers import *
 
 # Restruct the tuples to only get the required information.
 def restruct_tuples():
