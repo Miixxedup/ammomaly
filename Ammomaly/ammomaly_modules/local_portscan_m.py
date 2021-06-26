@@ -3,6 +3,9 @@ import pandas as pd
 from Ammomaly.utils.helpers import *
 from Ammomaly.utils.logger import log
 
+def portscan_config():
+    pass
+
 def open_port_generate():
     store_array = [] 
     for p in psutil.net_connections():
@@ -42,5 +45,3 @@ def merge_diff(main_df, new_df):
 
 def start_tcpdump_action(*args):
     log.info(f"Starting tcpdump using arguments: {[f for f in args]}")
-    # TODO implement actual TCPDUMP startup.
-    # subproces.Popen(tcpdump, '')
