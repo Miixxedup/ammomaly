@@ -1,13 +1,7 @@
 from importlib import import_module
 from os import listdir
 from Ammomaly.utils.logger import log
-
-# Method to loop over ammomaly_modules and import all.
-IGNORE_FILES = ['__init__.py','example_module.py',"__pycache__"]
-MUST_CONTAIN = ['generate','diff','action']
-MAY_CONTAIN = ['_config']
-DIRECTORY = 'Ammomaly/ammomaly_modules/'
-IMPORT_DIRECTORY = 'Ammomaly.ammomaly_modules'
+from Ammomaly.config.config import *
 
 def get_all_modules():
     modules = dict()

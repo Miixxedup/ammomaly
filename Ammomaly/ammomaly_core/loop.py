@@ -38,8 +38,7 @@ def main_loop(module_switch):
         log.info("Starting all modules found in ammomaly_modules")
         # Collect all modules with their definitions
         mods = get_all_modules()
-        for m in mods:
-            log.info(f"Loading {m}") 
+        for m in mods: 
             init_tracking(
             statename= m, 
             function_generate= getattr(mods[m][0],mods[m][1]['generate']),
