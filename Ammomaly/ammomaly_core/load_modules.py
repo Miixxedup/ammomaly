@@ -6,12 +6,13 @@ from pprint import pprint
 # Method to loop over ammomaly_modules and import all.
 IGNORE_FILES = ['__init__.py','example_module.py',"__pycache__"]
 MUST_CONTAIN = ['_generate','_diff','_action']
-DIRECTORY = 'ammomaly_modules'
+DIRECTORY = 'Ammomaly/ammomaly_modules/'
+IMPORT_DIRECTORY = 'Ammomaly.ammomaly_modules'
 
 def get_all_modules():
     modules = dict()
     # Tuples containing the package and the name
-    to_import = [(import_module(f"{DIRECTORY}.{l[:-3]}"),l[:-3]) for l in listdir("ammomaly_modules") if l not in IGNORE_FILES]
+    to_import = [(import_module(f"{IMPORT_DIRECTORY}.{l[:-3]}"),l[:-3]) for l in listdir(DIRECTORY) if l not in IGNORE_FILES]
     # Import the package and name into a dict
     for d in to_import:
         modules[d[1]] = d[0]
