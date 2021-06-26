@@ -1,7 +1,6 @@
 from time import sleep
 
-import psutil
-from Ammomaly.config import *
+from Ammomaly.config.config import *
 from Ammomaly.utils.local_portscan import *
 from Ammomaly.ammomaly_core.load_modules import *
 from Ammomaly.ammomaly_core.state import *
