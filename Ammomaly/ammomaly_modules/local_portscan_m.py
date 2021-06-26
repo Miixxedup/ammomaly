@@ -1,6 +1,7 @@
 import psutil
 import pandas as pd
 from utils.helpers import *
+from Ammomaly.utils.logger import log
 
 def open_port_generate():
     store_array = [] 
@@ -40,6 +41,6 @@ def merge_diff(main_df, new_df):
     return hits[hits['_merge'] == 'right_only']
 
 def start_tcpdump_action(*args):
-    print(f"Starting tcpdump using arguments: {[f for f in args]}")
+    log.info(f"Starting tcpdump using arguments: {[f for f in args]}")
     # TODO implement actual TCPDUMP startup.
     # subproces.Popen(tcpdump, '')

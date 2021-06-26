@@ -4,6 +4,7 @@ from Ammomaly.config.config import *
 from Ammomaly.utils.local_portscan import *
 from Ammomaly.ammomaly_core.load_modules import *
 from Ammomaly.ammomaly_core.state import *
+from Ammomaly.utils.logger import log
 
 ''' 
 Update loop
@@ -34,10 +35,11 @@ def manual_call():
 def main_loop(module_switch):
     # import all modules and go, otherwise execute above loop
     if module_switch:
-        print("[INFO] Starting all modules found in ammomaly_modules:")
+        log.info("Starting all modules found in ammomaly_modules")
         # Collect all modules with their definitions
         mods = get_all_modules()
-        for m in mods: 
+        for m in mods:
+            log.info(f"Loading {m}") 
             init_tracking(
             statename= m, 
             function_generate= getattr(mods[m][0],mods[m][1]['generate']),
@@ -45,6 +47,6 @@ def main_loop(module_switch):
             action_on_diff= getattr(mods[m][0],mods[m][1]['action'])
         )
     else:
-        print("Starting the manual defined loop in ammomaly.py")
+        log.info("Starting the manual defined loop in ammomaly.py")
         manual_call()
     update()
